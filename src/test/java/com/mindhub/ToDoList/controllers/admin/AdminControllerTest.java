@@ -1,6 +1,5 @@
 package com.mindhub.ToDoList.controllers.admin;
 
-
 import com.mindhub.ToDoList.dtos.userDTOs.UserDTO;
 import com.mindhub.ToDoList.exceptions.UserNotFoundException;
 import com.mindhub.ToDoList.models.EntityUser;

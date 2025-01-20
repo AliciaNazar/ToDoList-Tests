@@ -1,6 +1,5 @@
 package com.mindhub.ToDoList.integrationTests;
 
-
 import com.mindhub.ToDoList.models.EntityUser;
 import com.mindhub.ToDoList.models.Task;
 import com.mindhub.ToDoList.models.enums.RoleType;

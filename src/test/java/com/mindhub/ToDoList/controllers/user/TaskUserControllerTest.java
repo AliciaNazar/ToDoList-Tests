@@ -1,6 +1,5 @@
 package com.mindhub.ToDoList.controllers.user;
 
-
 import com.mindhub.ToDoList.dtos.taskDTOs.TaskDTO;
 import com.mindhub.ToDoList.exceptions.TaskNotFoundException;
 import com.mindhub.ToDoList.models.Task;

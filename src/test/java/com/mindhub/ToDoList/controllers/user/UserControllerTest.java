@@ -1,6 +1,5 @@
 package com.mindhub.ToDoList.controllers.user;
 
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mindhub.ToDoList.config.CustomUserDetailsService;
 import com.mindhub.ToDoList.config.SecurityConfig;
@@ -25,7 +24,6 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
 
 
 
@@ -100,15 +98,15 @@ public class UserControllerTest {
 
     @Test
     public void testGetUser() throws Exception {
-        when(userService.getUserByUsername(user.getUsername())).thenReturn(userDTO); //simulo que el servicio de usuarios devuelve un UserDTO cuando busco por nombre de usuario
-        when(customUserDetailsService.loadUserByUsername(user.getUsername())) //simulo que el servicio de detalles del usuario carga correctamente un usuario con sus credenciales y roles
+        when(userService.getUserByUsername(user.getUsername())).thenReturn(userDTO);
+        when(customUserDetailsService.loadUserByUsername(user.getUsername()))
                 .thenReturn(org.springframework.security.core.userdetails.User.builder()
                         .username(user.getUsername())
                         .password(user.getPassword())
                         .roles(user.getRoleType().toString())
                         .build());
 
-        mockMvc.perform(get(uri) //Realiza una solicitud HTTP GET al endpoint /api/user/users con el encabezado Accept: application/json
+        mockMvc.perform(get(uri)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk()) // Valida que el código de estado sea 200 (OK)
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON)) //que el contenido de la respuesta sea JSON
