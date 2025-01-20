@@ -41,7 +41,6 @@ public class TaskServiceImplTest {
         MockitoAnnotations.openMocks(this);
 
         user = new EntityUser();
-        //user.setId(1L);
         user.setUsername("usuario");
         user.setEmail("usuario@gmail.com");
         user.setPassword("usuario1234");
@@ -94,16 +93,17 @@ public class TaskServiceImplTest {
     public void testCreateTaskByUser() {
         UserDTO userDTO = new UserDTO();
         userDTO.setUsername("usuario");
+        Task task2 = new Task("Crear","Crear una nueva tarea",TaskStatus.PENDING,user);
 
         when(userRepository.findByUsername("usuario")).thenReturn(java.util.Optional.of(user));
-
         when(taskRepository.save(any(Task.class)))
-                .thenReturn(new Task("Tarea importante", "Descripción de la tarea", TaskStatus.PENDING, user));
+                .thenReturn(task2);
 
-        TaskDTO result = taskService.createTaskByUser(taskDTO, userDTO);
+        TaskDTO taskDTO2 = new TaskDTO(task2);
+        TaskDTO result = taskService.createTaskByUser(taskDTO2, userDTO);
 
         assertNotNull(result);
-        assertEquals("Tarea importante", result.getTitle());
+        assertEquals("Crear", result.getTitle());
         assertEquals(TaskStatus.PENDING, result.getStatus());
 
         verify(userRepository, times(1)).findByUsername("usuario");

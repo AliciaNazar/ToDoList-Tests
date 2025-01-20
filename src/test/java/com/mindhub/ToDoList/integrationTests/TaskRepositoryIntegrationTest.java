@@ -13,16 +13,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.Optional;
-
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-//@DataJpaTest //Configura un entorno de prueba enfocado en componentes relacionados con JPA, como repositorios, pero como tengo el SpringBootTest abajo ya no hace falta
-@SpringBootTest // carga el contexto de la aplicación para pruebas
-@ActiveProfiles("test") //para que spring busque propiedades en application-test.properties
-@Transactional //Al final de cada prueba, la transacción se revierte automáticamente, dejando la base de datos en su estado inicial.
+//@DataJpaTest
+@SpringBootTest
+@ActiveProfiles("test")
+@Transactional
 public class TaskRepositoryIntegrationTest {
 
     @Autowired
@@ -57,10 +55,11 @@ public class TaskRepositoryIntegrationTest {
         Task task = new Task();
         task.setTitle("Test Task");
         task.setDescription("Leer documentación sobre test unitarios");
+
         Task savedTask = taskRepository.save(task);
 
-        assertNotNull(savedTask.getId()); // me voy a fijar si se guardó
-        assertEquals("Test Task", savedTask.getTitle()); //aquí toy comparando
+        assertNotNull(savedTask.getId());
+        assertEquals("Test Task", savedTask.getTitle());
     }
 
     //R: obtener una tarea

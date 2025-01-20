@@ -116,3 +116,4 @@ public class UserServiceImplTest {
         assertThrows(UserNotFoundException.class, () -> userService.deleteUser(1L));
     }
 }
+
