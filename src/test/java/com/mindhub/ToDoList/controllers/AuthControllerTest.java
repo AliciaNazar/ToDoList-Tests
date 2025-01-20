@@ -3,8 +3,6 @@ package com.mindhub.ToDoList.controllers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mindhub.ToDoList.config.JwtUtils;
 import com.mindhub.ToDoList.dtos.authDTOs.LoginUserDTO;
-import com.mindhub.ToDoList.dtos.userDTOs.UserDTO;
-import com.mindhub.ToDoList.dtos.userDTOs.UserDTORequest;
 import com.mindhub.ToDoList.models.enums.RoleType;
 import com.mindhub.ToDoList.services.UserService;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,7 +18,6 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.security.core.Authentication;
-import org.springframework.web.client.HttpClientErrorException;
 
 import static org.mockito.Mockito.*;
 import static org.mockito.ArgumentMatchers.any;

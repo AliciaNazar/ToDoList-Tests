@@ -4,41 +4,22 @@ package com.mindhub.ToDoList.controllers.user;
 import com.mindhub.ToDoList.dtos.taskDTOs.TaskDTO;
 import com.mindhub.ToDoList.exceptions.TaskNotFoundException;
 import com.mindhub.ToDoList.models.Task;
-import com.mindhub.ToDoList.models.enums.TaskStatus;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ActiveProfiles;
-
-
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mindhub.ToDoList.config.CustomUserDetailsService;
-import com.mindhub.ToDoList.config.SecurityConfig;
-import com.mindhub.ToDoList.config.JwtUtils;
 import com.mindhub.ToDoList.dtos.userDTOs.UserDTO;
-import com.mindhub.ToDoList.controllers.user.UserController;
-import com.mindhub.ToDoList.dtos.userDTOs.UserDTORequest;
-import com.mindhub.ToDoList.dtos.authDTOs.LoginUserDTO;
-import com.mindhub.ToDoList.exceptions.UserNotFoundException;
-import com.mindhub.ToDoList.models.enums.RoleType;
 import com.mindhub.ToDoList.models.EntityUser;
-import com.mindhub.ToDoList.repositories.UserRepository;
 import com.mindhub.ToDoList.services.TaskService;
 import com.mindhub.ToDoList.services.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
-
-
 import java.util.List;
-
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;

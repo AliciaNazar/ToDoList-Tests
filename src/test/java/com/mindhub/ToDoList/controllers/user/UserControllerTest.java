@@ -6,44 +6,27 @@ import com.mindhub.ToDoList.config.CustomUserDetailsService;
 import com.mindhub.ToDoList.config.SecurityConfig;
 import com.mindhub.ToDoList.config.JwtUtils;
 import com.mindhub.ToDoList.dtos.userDTOs.UserDTO;
-import com.mindhub.ToDoList.controllers.user.UserController;
 import com.mindhub.ToDoList.dtos.userDTOs.UserDTORequest;
-import com.mindhub.ToDoList.dtos.authDTOs.LoginUserDTO;
-import com.mindhub.ToDoList.exceptions.UserNotFoundException;
 import com.mindhub.ToDoList.models.enums.RoleType;
 import com.mindhub.ToDoList.models.EntityUser;
 import com.mindhub.ToDoList.repositories.UserRepository;
-import com.mindhub.ToDoList.services.TaskService;
 import com.mindhub.ToDoList.services.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.test.context.support.TestExecutionEvent;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-
-import java.util.Collections;
-
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 
-//import org.springframework.security.test.context.support.WithMockUser;
-//import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors;
 
 
 @SpringBootTest(properties = "spring.profiles.active=test")

@@ -1,52 +1,30 @@
 package com.mindhub.ToDoList.controllers.admin;
 
 
-import com.mindhub.ToDoList.config.JwtUtils;
 import com.mindhub.ToDoList.dtos.userDTOs.UserDTO;
 import com.mindhub.ToDoList.exceptions.UserNotFoundException;
 import com.mindhub.ToDoList.models.EntityUser;
-import com.mindhub.ToDoList.controllers.admin.AdminController;
 import com.mindhub.ToDoList.models.enums.RoleType;
 import com.mindhub.ToDoList.repositories.UserRepository;
 import com.mindhub.ToDoList.services.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
-
-import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.hamcrest.Matchers.is;
-import static org.mockito.ArgumentMatchers.anyLong;
-
-import com.mindhub.ToDoList.dtos.userDTOs.UserDTO;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.RequestBuilder;
-import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 
-//@WebMvcTest(AdminController.class)
 
 @SpringBootTest(properties = "spring.profiles.active=test")
 @AutoConfigureMockMvc
